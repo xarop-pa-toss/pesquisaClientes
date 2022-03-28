@@ -28,13 +28,11 @@ class MainWindow(QMainWindow):
         self.setFixedSize(QSize(1125, 600)) # primeiros dois parâmetros são posição no ecrã. Terceiro e quarto parâmetros são largura x altura.
 
         self.add_menu_bar()
-        #self.add_input_text()
         self.add_search_items()
         self.add_table()
 
         label = QLabel('<h3>Procurar por:</h3>', parent = self)
         label.move(20, 30)
-
         
         self.queryButton.clicked.connect(self.execute_query)
 
@@ -78,28 +76,31 @@ class MainWindow(QMainWindow):
 
 
     def add_table(self):
-        self.table = QTableWidget(parent = self)
-        self.table.setFixedSize(850, 500)
-        self.table.setColumnCount(5)
-        self.table.setSortingEnabled(False)
-        self.table.setHorizontalHeaderLabels(['Nome','NIF', 'Telef', 'Telem', 'Email'])
+        table = QTableWidget(parent = self)
 
-        self.table.setColumnWidth(0, 300)
-        self.table.setColumnWidth(1, 100)
-        self.table.setColumnWidth(2, 100)
-        self.table.setColumnWidth(3, 100)
-        self.table.setColumnWidth(4, 250)
-        self.table.move(250, 40)
+        table.setFixedSize(850, 500)
+        table.setColumnCount(5)
+        table.setSortingEnabled(False)
+        table.setHorizontalHeaderLabels(['Nome','NIF', 'Telef', 'Telem', 'Email'])
+
+        table.setColumnWidth(0, 300)
+        table.setColumnWidth(1, 100)
+        table.setColumnWidth(2, 100)
+        table.setColumnWidth(3, 100)
+        table.setColumnWidth(4, 250)
+        table.move(250, 40)
 
     def add_search_items(self):
-        self.queryBox = QComboBox(parent = self)
-        self.queryBox.addItems(['Nome', 'NIF', 'Telef', 'Telem', 'Email'])
-        self.queryBox.move(20, 60)
-        self.queryText = QLineEdit(parent = self)
-        self.queryText.move(130, 60)
-        self.queryButton = QPushButton(parent = self)
-        self.queryButton.setText('Procurar')
-        self.queryButton.move(20, 120)
+        queryBox = QComboBox(parent = self)
+        queryBox.addItems(['Nome', 'NIF', 'Telef', 'Telem', 'Email'])
+        queryBox.move(20, 60)
+       
+        queryText = QLineEdit(parent = self)
+        queryText.move(130, 60)
+        
+        queryButton = QPushButton(parent = self)
+        queryButton.setText('Procurar')
+        queryButton.move(20, 120)
 
     def add_menu_bar(self):
 
